@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,7 +33,7 @@ namespace Line.Messaging.API.Models.Response
         [JsonPropertyName("apiBroadcast")]
         public int? ApiBroadcast { get; set; }
 
-        [JsonPropertyName("autoResponse")]
+        [JsonPropertyName("apiPush")]
         public int? ApiPush { get; set; }
 
         [JsonPropertyName("apiMulticast")]
