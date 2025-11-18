@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+using System.IO;
+using System.Text.Json;
 using Line.Messaging.API.Common;
 using Line.Messaging.API.Models.Response;
 using RestSharp;
@@ -75,7 +76,19 @@ namespace Line.Messaging.API.Clients
             request.AddHeader("Authorization", AuthorizationHeaderValue);
             request.AddHeader("Content-Type", contentType);
 
-            request.AddParameter(contentType, imageStream, ParameterType.RequestBody);
+            byte[] payload;
+            if (imageStream is MemoryStream memoryStream)
+            {
+                payload = memoryStream.ToArray();
+            }
+            else
+            {
+                using var copy = new MemoryStream();
+                await imageStream.CopyToAsync(copy, cancellationToken);
+                payload = copy.ToArray();
+            }
+
+            request.AddParameter(new BodyParameter(string.Empty, payload, contentType));
 
             var response = await Client.ExecuteAsync(request, cancellationToken);
 

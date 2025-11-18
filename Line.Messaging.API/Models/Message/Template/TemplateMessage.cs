@@ -1,9 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Line.Messaging.API.Models.Message.Template.Template;
 
 namespace Line.Messaging.API.Models.Message.Template
 {
