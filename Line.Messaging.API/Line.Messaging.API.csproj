@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>11.0</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\Message\Flex\Content\Bubble\**" />
+    <Compile Remove="Models\Message\Flex\Content\Carousel\**" />
+    <EmbeddedResource Remove="Models\Message\Flex\Content\Bubble\**" />
+    <EmbeddedResource Remove="Models\Message\Flex\Content\Carousel\**" />
+    <None Remove="Models\Message\Flex\Content\Bubble\**" />
+    <None Remove="Models\Message\Flex\Content\Carousel\**" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="6.0.16" />
+		<PackageReference Include="RestSharp" Version="109.0.1" />
+		<PackageReference Include="RestSharp.Serializers.NewtonsoftJson" Version="109.0.1" />
+	</ItemGroup>
+</Project>
